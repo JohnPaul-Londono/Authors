@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import AuthorsList from './components/AuthorsList';
+import AddAuthor from './views/AddAuthor'
+import Edit from './views/Edit';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Authors</h1>
+      <BrowserRouter>
+        <Route exact path="/">
+          <AuthorsList />
+        </Route>
+        <Route exact path="/add">
+          <AddAuthor />
+        </Route>
+        <Route exact path="/api/authors/edit/:_id">
+          <Edit />
+        </Route>
+      </BrowserRouter>
     </div>
   );
 }

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const AuthorManagerSchema = new mongoose.Schema(
 	{
-		author: {
+		name: {
 			type: String,
 			required: [true, "Author must be 3 Characters Long "],
 			minLength: [3, "Author must be 3 Characters Long "]
